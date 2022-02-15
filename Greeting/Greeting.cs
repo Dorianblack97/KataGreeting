@@ -14,8 +14,6 @@ namespace Greeting
             var manyNameGreeter = new MoreNamesGreeting();
             manyUpperNameGreeter.SetNext(manyNameGreeter);
             return nullGreeter.Handle(name);
-
-            
             }
         }
     }

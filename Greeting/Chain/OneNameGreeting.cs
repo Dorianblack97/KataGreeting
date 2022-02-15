@@ -11,8 +11,6 @@ namespace Greeting.Chain
             if (names.Length == 1)
                 return $"Hello, {names[0]}.";
             return Next.Handle(names);
-
-
         }
     }
 }

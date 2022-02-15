@@ -14,13 +14,11 @@ namespace Greeting.Extensions
                 switch (item.Contains(","))
                 {
                     case true when item.Contains("\""):
-                        var tempString = item.Remove(0, 1);
-                        tempString = tempString.Remove(tempString.Length - 1);
+                        var tempString = item.Trim('"');                        
                         namesList.Add(tempString);
                         break;
                     case true:
-                        var tempArray = item.Split(", ", StringSplitOptions.RemoveEmptyEntries);
-                        tempArray.ToList().ForEach(x => namesList.Add(x));
+                        namesList.AddRange(item.Split(", ", StringSplitOptions.RemoveEmptyEntries));
                         break;
                     default:
                         namesList.Add(item);

@@ -6,15 +6,8 @@ namespace Greeting.Chain
 {
     public class MoreNameWithUpperGreeting : AbstractGreeting
     {
-        public override string Handle(params string[] names)
-        {
-            if (names.Any(x => x.IsUpper()))
-            {
-                return CreateString(names);
-            }            
-            return Next.Handle(names);
-        }
-
+        public override string Handle(params string[] names) => names.Any(x => x.IsUpper()) ? CreateString(names) : Next.Handle(names);
+        
         private static string CreateString(string[] names)
         {
             var lowerArray = names.Validate().MoveUpperToNewArray(out var upperArray);
