@@ -10,10 +10,8 @@ namespace Greeting.Test
 
         [SetUp]
         public void Setup()
-        {
-            var mock = new Mock<IGreetingHandler>();
-            mock.Setup(x => x.Handle(new string[] { "Andrea", "Franco" })).Returns("Hello, Andrea and Franco.");
-            _sut = mock.Object;
+        {            
+            _sut = new MoreNamesGreeting();
         }
 
         [Test]

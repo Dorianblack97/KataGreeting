@@ -2,6 +2,8 @@
 using Moq;
 using Greeting.Chain;
 
+
+
 namespace Greeting.Test
 {
     public class OneNameHandlerTests
@@ -11,10 +13,8 @@ namespace Greeting.Test
         [SetUp]
         public void Setup()
         {
-            var mock= new Mock<IGreetingHandler>();
-            mock.Setup(x => x.Handle("Andrea")).Returns("Hello, Andrea.");
-            mock.Setup(x => x.Handle("ANDREA")).Returns("HELLO, ANDREA!");
-            _sut = mock.Object;
+            
+            _sut = new OneNameGreeting();
           
         }
 

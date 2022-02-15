@@ -11,9 +11,7 @@ namespace Greeting.Test
         [SetUp]
         public void Setup()
         {
-            var mock = new Mock<IGreetingHandler>();
-            mock.Setup(x => x.Handle(null)).Returns("Hello, my friend.");
-            _sut = mock.Object;
+            _sut = new NullNameGreeting();
         }
 
         [Test]
