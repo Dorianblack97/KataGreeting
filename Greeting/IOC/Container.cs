@@ -20,8 +20,10 @@ namespace Greeting.IOC
                 .AddSingleton<IGreetingHandler>(_ =>
                 {
                     var nullGreeter = new NullNameGreeting();
+                    var oneNameUpperGreeter = new OneNameUpperGreeting();
+                    nullGreeter.SetNext(oneNameUpperGreeter);
                     var oneNameGreeter = new OneNameGreeting();
-                    nullGreeter.SetNext(oneNameGreeter);
+                    oneNameUpperGreeter.SetNext(oneNameGreeter);
                     var manyUpperNameGreeter = new MoreNameWithUpperGreeting();
                     oneNameGreeter.SetNext(manyUpperNameGreeter);
                     var manyNameGreeter = new MoreNamesGreeting();

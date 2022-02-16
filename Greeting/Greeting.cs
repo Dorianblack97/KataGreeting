@@ -5,14 +5,17 @@ namespace Greeting
     public class Greeting : IGreeting
     {
         private IGreetingHandler nullGreeter,
+                                 oneNameUpperGreeter,
                                  oneNameGreeter,
                                  manyUpperNameGreeter,
                                  manyNameGreeter;
         public Greeting()
         {
             nullGreeter = new NullNameGreeting();
+            oneNameUpperGreeter = new OneNameUpperGreeting();
+            nullGreeter.SetNext(oneNameUpperGreeter);
             oneNameGreeter = new OneNameGreeting();
-            nullGreeter.SetNext(oneNameGreeter);
+            oneNameUpperGreeter.SetNext(oneNameGreeter);
             manyUpperNameGreeter = new MoreNameWithUpperGreeting();
             oneNameGreeter.SetNext(manyUpperNameGreeter);
             manyNameGreeter = new MoreNamesGreeting();

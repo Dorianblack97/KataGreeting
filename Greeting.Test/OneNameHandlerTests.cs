@@ -26,14 +26,5 @@ namespace Greeting.Test
 
             Assert.AreEqual(expected, actual);
         }
-
-        [Test]
-        public void Should_Handle_Uppercase_Name()
-        {
-            var expected = "HELLO, ANDREA!";
-            var actual = _sut.Handle("ANDREA");
-
-            Assert.AreEqual(expected, actual);
-        }
     }
 }
