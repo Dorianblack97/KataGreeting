@@ -13,9 +13,8 @@ namespace Greeting.Extensions
             {
                 switch (item.Contains(","))
                 {
-                    case true when item.Contains("\""):
-                        var tempString = item.Trim('"');                        
-                        namesList.Add(tempString);
+                    case true when item.Contains("\""):                                           
+                        namesList.Add(item.Trim('"'));
                         break;
                     case true:
                         namesList.AddRange(item.Split(", ", StringSplitOptions.RemoveEmptyEntries));

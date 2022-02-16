@@ -23,5 +23,13 @@ namespace Greeting.Test
 
             Assert.AreEqual(expected, actual);
         }
+        [Test]
+        public void Should_Handle_Multiple_Name_With_Only_Upper()
+        {
+            var expected = "HELLO ANDREA, FRANCO, GIUSEPPE!";
+            var actual = _sut.Handle("ANDREA", "FRANCO", "GIUSEPPE");
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

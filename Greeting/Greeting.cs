@@ -4,16 +4,20 @@ namespace Greeting
 {
     public class Greeting : IGreeting
     {
-        public string Greet(params string[] name)
+        private IGreetingHandler nullGreeter,
+                                 oneNameGreeter,
+                                 manyUpperNameGreeter,
+                                 manyNameGreeter;
+        public Greeting()
         {
-            var nullGreeter = new NullNameGreeting();
-            var oneNameGreeter = new OneNameGreeting();
+            nullGreeter = new NullNameGreeting();
+            oneNameGreeter = new OneNameGreeting();
             nullGreeter.SetNext(oneNameGreeter);
-            var manyUpperNameGreeter = new MoreNameWithUpperGreeting();
+            manyUpperNameGreeter = new MoreNameWithUpperGreeting();
             oneNameGreeter.SetNext(manyUpperNameGreeter);
-            var manyNameGreeter = new MoreNamesGreeting();
+            manyNameGreeter = new MoreNamesGreeting();
             manyUpperNameGreeter.SetNext(manyNameGreeter);
-            return nullGreeter.Handle(name);
-            }
         }
+        public string Greet(params string[] name) => nullGreeter.Handle(name);
     }
+}
