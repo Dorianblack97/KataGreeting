@@ -1,3 +1,4 @@
+using Greeting.IOC;
 using NUnit.Framework;
 
 namespace Greeting.Test
@@ -10,7 +11,7 @@ namespace Greeting.Test
         public void Setup()
         {
 
-            _sut = new Greeting();
+            _sut = Container.GetService<IGreeting>();
         }
 
         [Test]        

@@ -9,7 +9,7 @@ namespace Greeting.Chain
 {
     public class OneNameUpperGreeting : AbstractGreeting
     {
-        public override string Handle(params string[] names) => names[0].IsUpper() ? $"HELLO, {names[0]}!" : Next.Handle(names);
+        public override string Handle(params string[] names) => names.Length==1 && names[0].IsUpper() ? $"HELLO, {names[0]}!" : Next.Handle(names);
         
     }
 }
